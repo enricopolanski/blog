@@ -1,0 +1,27 @@
+{
+  "name": "blog",
+  "version": "2020.11.1",
+  "description": "project files for my blog",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enricopolanski/blog.git"
+  },
+  "keywords": [
+    "blog",
+    "functional",
+    "programming",
+    "web",
+    "development"
+  ],
+  "author": "enricopolanski@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enricopolanski/blog/issues"
+  },
+  "homepage": "https://github.com/enricopolanski/blog#readme",
+  "devDependencies": {
+    "typescript": "^4.0.5"
+  }
+}

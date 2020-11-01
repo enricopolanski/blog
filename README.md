@@ -4,6 +4,10 @@
 
 This is a git "blog". It contains code and content needed to release my personal blog. Each pull request merged into `main` results in a new release of the blog.
 
+## Requirements
+
+In order to launch the application Node (>= v15.0.1) is required.
+
 ## Installation
 
 TODO: At the moment there is nothing to install
