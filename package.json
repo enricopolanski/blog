@@ -3,7 +3,9 @@
   "version": "2020.11.1",
   "description": "project files for my blog",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/enricopolanski/blog.git"
@@ -22,6 +24,11 @@
   },
   "homepage": "https://github.com/enricopolanski/blog#readme",
   "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@types/showdown": "^1.9.3",
     "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "showdown": "^1.9.1"
   }
 }
