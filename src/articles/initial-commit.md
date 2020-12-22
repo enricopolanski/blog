@@ -1,5 +1,30 @@
 # Initial Commit
 
+Hello everyone and welcome to the very first article of my blog.
+
+From the longest time I wanted to share my ideas for writing software. I believe that the ultimate goal of a software developer's journey is simplicity, and that the fastest, simplest road to simplicity can be achieved through composition.
+
+The target for my blog is any developer with a basic understanding of computing fundamentals.
+Having a general idea about _types_ is also extremely helpful, I will be using TypeScript for the time being to write a blog through the use of functional programming.
+
+There's a list of ideas I have about software that I'd like to share with you:
+
+- coding is a repetitive task
+- data is the only thing that matters
+- programming can be a fun activity
+
+# Simplicity from the ground up
+
+I don't know you, but I feel like each and every one of us has some _a-ha_ moments when we are on the path of trying to understand each other.
+
+For me, a web developer mostly using JavaScript, it was few months after I started programming. I had spent few days banging my head on many different kind of problems. There was so much jargon and technologies. Rendering, providers, diffing, dependency injection, graphs, all different kind of databases, of protocols, and don't even start me about how much
+
+You see, those may almost appear as philosophical questions, but in the end
+
+I realized something that was going to change my perception, at least as a web developer, forever:
+
+it was not important what type of application I was making, whether an array util, maybe some React component, maybe a CLI tool, maybe writing tests, all I was doing was consistently mix
+
 What should be a good first article for a _blog about developing a blog in a git repo_?
 
 I guess we should lay down the process that brought us to read that blog online!
@@ -112,6 +137,16 @@ Lets write a basic html file, let's start with the `<head>` tag content. `head.h
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enrico Polanski's Blog</title>
+  <link
+    rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css"
+  />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script
+    charset="UTF-8"
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/languages/go.min.js"
+  ></script>
 </head>
 ```
 

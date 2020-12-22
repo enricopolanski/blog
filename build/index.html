@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <title>Enrico Polanski's Blog</title></head>
+  <body><div class="root-body"><header>
+<h1 class="main-header">
+  How to overcomplicate your blog with functional programming
+</h1>
+<nav class="top-nav-bar w100 center-horizontally">
+  <ul>
+    <li class="selected">
+      <a href="/index.html">
+        BLOG</a>
+    </li>
+    <li >
+      <a href="/about-me.html">ABOUT ME</a></li>
+  </ul>
+</nav>
+</header><h1 id="initialcommit">Initial Commit</h1>
+<p>What should be a good first article for a <em>blog about developing a blog in a git repo</em>?</p>
+<p>I guess we should lay down the process that brought us to read that blog online!</p>
+<p>Let's lay down the requirements:</p>
+<ul>
+<li><p>blog</p></li>
+<li><p>a web page: as any other blog on the internet we'll deploy a web application</p></li>
+<li><p>content to the web page: the article you're reading and some information about me, I guess</p></li>
+<li><p>git project</p></li>
+<li><p>should contain all source, configuration and content files necessary to deploy the blog itself.</p></li>
+</ul>
+<p>Writing down the goals makes it easier to complete a task, doesn't it?</p>
+<p>Let's start with the git project.</p>
+<p>We'll start in a brand empty folder, and <code>git init</code> a new project. We'll use the <code>main</code> branch as the reference production branch. We'll leverage other branches eventually for development and testing, in particular:</p>
+<ul>
+<li><code>development</code>, which I'll treat as the main branch for development</li>
+<li><code>article-1</code>, which is a branch forked from <code>development</code> where I'll implements all the requirements for <code>article-1</code>.</li>
+</ul>
+<p>Let's document the project? I'll use this <a href="https://guides.github.com/features/wikis/#Formatting-a-readme">guide on github</a> as a starting point.</p>
+<p>We'll first write a <code>README.md</code> file following the previous guide:</p>
+<p>README.md</p>
+<blockquote>
+  <h1 id="enricopolanskiblog">Enrico Polanski Blog</h1>
+  <h2 id="description">Description</h2>
+  <p>This is a git "blog". It contains code and content needed to release my personal blog. Each pull request merged into <code>main</code> results in a new release of the blog with a new article.</p>
+  <h2 id="installation">Installation</h2>
+  <p>SKIP FOR NOW, WE HAVEN'T INSTALLED ANY SOFTWARE YET</p>
+  <h2 id="usage">Usage</h2>
+  <p>There are two main ways to consume this blog. You can either clone the project <code>git clone https://github.com/enricopolanski/blog.git</code> on your device and consume the software and blog articles directly on your filesystem/ide or you can simply read the published version on: TODO: INSERT LINK.
+  The latest article can be found at <code>TODO: INSERT LINK</code>.</p>
+  <h2 id="contributing">Contributing</h2>
+  <p>See Contributing.md</p>
+  <h2 id="license">License</h2>
+  <p>See License.md</p>
+</blockquote>
+<p>So, we got most info out of the way:; we don't need The Table of Contents right now as we don't have contents yet. As for installation, all I've done till now was create a repo and write a <code>README</code> file so we still don't know what are the software requirements.</p>
+<p>As for the license, we'll copy paste the MIT license. It's an important feature for a blog about solutions to software problems that people can use or change the software itself and do anything they want with it. A summary of the MIT License can be found <a href="https://tldrlegal.com/license/mit-license#summary">here</a>. The full text can be found in <code>License.md</code>.</p>
+<p>For the contribution file, we'll copy and edit <a href="https://gist.github.com/PurpleBooth/b24679402957c63ec426">this template</a>. Everything merged into <code>main</code> will be released on the blog as well and everyone's free to contribute!</p>
+<p>I don't expect lots of contributors at the moment, so an edited template for now we'll do to the job</p>
+<p>At this point. We have the basics of our project up. And can commit on the <code>article-1</code> branch.</p>
+<p>You can track the content that this project had by the hash of the specific commit.</p>
+<p>running <code>git log</code>:</p>
+<pre><code>commit 49ee65349fd220112cf139663e9ed45793432afb (HEAD -&gt; article-1, origin/article-1)
+Author: EnricoPolanski &lt;stuff&gt;
+Date:   Sun Nov 1 20:50:10 2020 +0100
+
+feat (articles): Added first version of initial-commit.md
+</code></pre>
+<p>Among the various info we have the hash of the current commit: 49ee65349fd220112cf139663e9ed45793432afb</p>
+<p>I can now forever point to this specific version of my blog!</p>
+<p>I can, e.g., checkout to this specific commit and create a totally different version of this project. I can also simply use the hash to point you to the following URL:</p>
+<p>https://github.com/enricopolanski/blog/tree/49ee65349fd220112cf139663e9ed45793432afb</p>
+<p>which will only contain the 3 project files (CONTRIBUTING, README, LICENSE) and the half-worked <code>initial-commit.md</code>.</p>
+<h3 id="theblog">The Blog</h3>
+<hr />
+<p>We have a public project with its basic info, we half-written the first article, what we miss is to write an application that will display our blog. Let's check again the requirements.</p>
+<blockquote>
+  <ul>
+  <li>a web page: as any other blog on the internet we'll deploy a web application</li>
+  <li>content to the web page: the article you're reading and some information about me, I guess</li>
+  </ul>
+</blockquote>
+<p>Let's translate the requirements and try to find the shortest and simplest way to release my blog.</p>
+<ul>
+<li>a web page</li>
+<li>should contain an article (we're doing so right now, so we got that)</li>
+<li>should contain about me information</li>
+</ul>
+<p>At this point all we need to do is implement a program that will generate an <code>.html</code> file.</p>
+<p>I'll use TypeScript to write such a program, thus we'll need Node.js and add it to the dependencies to the README file. We'll use <code>TypeScript 4.0.5</code> on <code>Node v15.0.1</code> in this commit.</p>
+<p>We'll initiate a new npm project through <code>npm init</code> and a TypeScript configuration file through <code>tsc --init</code>. I'll skip over the specific configurations, if you're interested in them check the project files at <em>this commit</em>, use GitHub issues if you have curiosities or want to discuss those or any other content in the blog/project.</p>
+<p>We have now all we need to generate or first blog entry.</p>
+<p>Lets write a basic html file, let's start with the <code>&lt;head&gt;</code> tag content. <code>head.html</code> and put it under <code>application/head.html</code>.</p>
+<pre><code class="html language-html">&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;Enrico Polanski's Blog&lt;/title&gt;
+  &lt;link
+    rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css"
+  /&gt;
+  &lt;script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"&gt;&lt;/script&gt;
+  &lt;!-- and it's easy to individually load additional languages --&gt;
+  &lt;script
+    charset="UTF-8"
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/languages/go.min.js"
+  &gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<p>Now, we need content for the body, we'll put it in <code>application/index.html</code>.</p>
+<p>It would be nice to have a list of articles, but does it makes sense when there's only one article? No, which is why we didn't have it in our requirements.</p>
+<p>Thus, the body for our index is simply an html version of this article!</p></div></body>
+</html>
